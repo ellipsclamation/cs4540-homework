@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="true"
+        jar="C:\cs4540\GithubRepoSearcher\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="d19295eb0522d621b825b787f30456a83bff1672">
+        <dex dex="C:\cs4540\GithubRepoSearcher\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_0a25797bc3e279c5ebb397694ffc8efb88813357\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\cs4540\GithubRepoSearcher\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="3be78ebc2706b2e1fe2f12d5726887a92d6c183b">
+        <dex dex="C:\cs4540\GithubRepoSearcher\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_ab5acb73bf0224b06a9e554176ab9cee4143cca8\classes.dex" />
+    </item>
+
+</items>
