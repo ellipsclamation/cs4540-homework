@@ -2,11 +2,14 @@ package com.cs4540.newsapp.utilities;
 
 import android.content.Context;
 
+import com.cs4540.newsapp.NewsItem;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.net.HttpURLConnection;
+import java.util.ArrayList;
+
 
 /**
  * Created by seppc_laptop on 6/21/2017.
@@ -14,7 +17,7 @@ import java.net.HttpURLConnection;
 
 public class NewsJsonUtils {
 
-    public static String[] getSimpleNewsStringsFromJson(Context context, String newsJsonStr)
+    public static ArrayList<NewsItem> getSimpleNewsStringsFromJson(Context context, String newsJsonStr)
             throws JSONException {
 
         final String NEWS_ARTICLES = "articles";
@@ -29,29 +32,37 @@ public class NewsJsonUtils {
 
         final String NEWS_IMAGE = "urlToImage";
 
+        final String NEWS_TIME = "publishedAt";
+
         final String NEWS_STATUS = "status";
 
-
-        String[] parsedNewsData = null;
 
         JSONObject newsJson = new JSONObject(newsJsonStr);
 
         JSONArray newsArray = newsJson.getJSONArray(NEWS_ARTICLES);
 
-        parsedNewsData = new String[newsArray.length()];
+        ArrayList<NewsItem> newsItems = new ArrayList<>();
 
         for (int i = 0; i < newsArray.length(); i++) {
+            String author;
             String title;
             String description;
+            String url;
+            String imageUrl;
+            String publishedAt;
 
             JSONObject newsArticle = newsArray.getJSONObject(i);
 
+            author = newsArticle.getString(NEWS_AUTHOR);
             title = newsArticle.getString(NEWS_TITLE);
             description = newsArticle.getString(NEWS_DESCRIPTION);
+            url = newsArticle.getString(NEWS_URL);
+            imageUrl = newsArticle.getString(NEWS_IMAGE);
+            publishedAt = newsArticle.getString(NEWS_TIME);
 
-            parsedNewsData[i] = title + "\n\n" + description;
+            newsItems.add(new NewsItem(author, title, description, url, imageUrl, publishedAt));
         }
 
-        return parsedNewsData;
+        return newsItems;
     }
 }
